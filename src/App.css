@@ -1,0 +1,70 @@
+:root {
+    --messaging-color: #3a4450;
+}
+
+.homepage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.contactCard {
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    align-items: center;
+    width: 100%;
+}
+.contactSelect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16%;
+    overflow-y: scroll;
+    background: linear-gradient(45deg, black, var(--messaging-color));
+    height: 100vh;
+}
+.contactSelect i {
+    color: white;
+    font-size: 500%;
+    position: absolute;
+    top: 35%;
+    left: 30%;
+}
+.messageCompose {
+    position: fixed;
+    left: 15%;
+    bottom: 0;
+    width: 85%;
+    height: 15%;
+    background-color: var(--messaging-color);
+}
+.messageHistory {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 85%;
+    height: 85%;
+    background-color: var(--messaging-color);
+}
+.contactBubble {
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+.contactInfo aside {
+    margin: 0 5px;
+    color: white;
+}
+.contactInfo {
+    margin-left: 5px;
+    border-left: 2px solid white;
+    display: flex;
+    flex-direction: column;
+}
