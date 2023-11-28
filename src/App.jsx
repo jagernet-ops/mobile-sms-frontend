@@ -1,17 +1,13 @@
 import { useContext } from "react";
-import { URLContext } from "./components/URLContext";
+import { URLContext } from "./components/MessengerContext";
 import Messenger from "./components/Messenger";
 import "./App.css";
+import Error from "./components/Error";
 
 function App() {
     const url = useContext(URLContext);
-    console.log(url);
     if (!url) {
-        return (
-            <>
-                <h1>Please point to a valid instance</h1>
-            </>
-        );
+        return <Error />;
     }
     return <Messenger url={url} />;
 }

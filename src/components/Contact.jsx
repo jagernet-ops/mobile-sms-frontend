@@ -1,6 +1,6 @@
-function Contact({ name, number }) {
+function Contact({ name, number, selectAsContact }) {
     return (
-        <div className="contactCard">
+        <div className="contactCard" onClick={() => selectAsContact()}>
             <span className="contactBubble">{`${name.charAt(0)}`}</span>
             <div className="contactInfo">
                 <aside>{name}</aside>
