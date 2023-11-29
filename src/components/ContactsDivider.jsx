@@ -4,7 +4,7 @@ import Loading from "./Loading";
 import { useContext } from "react";
 import { URLContext } from "./MessengerContext";
 
-const ContactsDivider = ({ setSelectedContact }) => {
+const ContactsDivider = ({ setSelectedContact, windowRef }) => {
     const numberFormat = new RegExp("\\d", "gm");
     const url = useContext(URLContext);
     const { retrievedContacts, isLoading } = useGetContacts(url);
@@ -17,7 +17,11 @@ const ContactsDivider = ({ setSelectedContact }) => {
                     <Contact
                         key={"home"}
                         name="Home"
-                        selectAsContact={() => setSelectedContact("")}
+                        selectAsContact={() => {
+                            setSelectedContact({ number: "", name: "Home" });
+                            windowRef.current.scrollTop =
+                                windowRef.current.scrollHeight;
+                        }}
                     />
                     <hr />
                     {retrievedContacts.map((contact, index) => {
@@ -28,13 +32,16 @@ const ContactsDivider = ({ setSelectedContact }) => {
                                 number={contact.number
                                     .match(numberFormat)
                                     .join("")}
-                                selectAsContact={() =>
-                                    setSelectedContact(
-                                        contact.number
+                                selectAsContact={() => {
+                                    setSelectedContact({
+                                        number: contact.number
                                             .match(numberFormat)
-                                            .join("")
-                                    )
-                                }
+                                            .join(""),
+                                        name: contact.name,
+                                    });
+                                    windowRef.current.scrollTop =
+                                        windowRef.current.scrollHeight;
+                                }}
                             />
                         );
                     })}

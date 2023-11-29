@@ -74,23 +74,25 @@
 .messageBox input {
     background: transparent;
     border: none;
-    font-size: 250%;
+    font-size: 220%;
     width: 97%;
-    text-indent: 3%;
+    margin-left: 45px;
     outline: none;
     overflow-x: scroll;
+    font-weight: bold;
 }
 .messageHistory {
     position: fixed;
     top: 0;
     right: 0;
     width: 85%;
-    height: 85%;
+    height: 92%;
     background-color: var(--messaging-color);
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 .contactBubble {
     width: 25px;
@@ -158,24 +160,47 @@
     width: 4%;
     margin-right: 1%;
 }
-.client {
-    background-color: #75ec5c;
+.incoming {
+    background-color: #5cde41;
+    color: white;
 }
-.user {
+.outgoing {
+    color: white;
     background-color: #2097f3;
 }
+.messageBlock {
+    width: 100%;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+}
 .sentMessage {
-    border: 1px thin black;
+    border: 1px solid black;
     border-radius: 20px;
     font-size: 100%;
+    padding: 0 5px;
     text-align: center;
     min-width: 5%;
     max-width: 30%;
+    font-weight: bold;
 }
 .messageHistory header {
-    display: flex;
-    flex-direction: column;
     border-bottom: 4px solid black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     background-color: whitesmoke;
     width: 100%;
+    padding: 10px 0;
+    gap: 5%;
+}
+.messageHistory header h2 {
+    padding: 0;
+    margin: 0;
+}
+.messageHistory header button {
+    font-size: 200%;
+    margin-left: 20px;
+    background: transparent;
+    border: none;
 }

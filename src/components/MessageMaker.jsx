@@ -4,14 +4,11 @@ import { URLContext, ContactContext } from "./MessengerContext";
 import uEmojiParser from "universal-emoji-parser";
 import EmojiDataList from "./EmojiDataList";
 
-const MessageMaker = () => {
+const MessageMaker = ({ windowRef }) => {
     const target = useContext(ContactContext);
     const url = useContext(URLContext);
     const [message, setMessage] = useState("");
-    const { sendMessage, hasSentMessage } = useSendMessage(url);
-    useEffect(() => {
-        hasSentMessage && console.log("Successfully Sent the Message");
-    }, [hasSentMessage]);
+    const { sendMessage } = useSendMessage(url);
 
     const handleMessageParsing = (e) => {
         const rawString = e.target.value;
@@ -21,8 +18,12 @@ const MessageMaker = () => {
 
     const handleSend = () => {
         sendMessage(
-            JSON.stringify({ phoneNumber: target, messageVal: `${message}` })
+            JSON.stringify({
+                phoneNumber: target["number"],
+                messageVal: `${message}`,
+            })
         );
+        windowRef.current.scrollTop = windowRef.current.scrollHeight;
         setMessage("");
     };
 
