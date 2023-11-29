@@ -49,7 +49,7 @@
 }
 .messageBox {
     margin-top: 4%;
-    background-color: white;
+    background-color: whitesmoke;
     position: relative;
     width: 100%;
     display: flex;
@@ -87,6 +87,10 @@
     width: 85%;
     height: 85%;
     background-color: var(--messaging-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
 }
 .contactBubble {
     width: 25px;
@@ -153,4 +157,25 @@
     border-radius: 20px;
     width: 4%;
     margin-right: 1%;
+}
+.client {
+    background-color: #75ec5c;
+}
+.user {
+    background-color: #2097f3;
+}
+.sentMessage {
+    border: 1px thin black;
+    border-radius: 20px;
+    font-size: 100%;
+    text-align: center;
+    min-width: 5%;
+    max-width: 30%;
+}
+.messageHistory header {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 4px solid black;
+    background-color: whitesmoke;
+    width: 100%;
 }
