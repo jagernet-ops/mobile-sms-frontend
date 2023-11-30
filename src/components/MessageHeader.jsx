@@ -5,16 +5,15 @@ const MessageHeader = ({ contact }) => {
     const url = useContext(URLContext);
     useEffect(() => {
         const socket = new WebSocket(`ws:${url.split(":")[1]}:8080`);
-        socket.onmessage = ({ data }) =>
-            Notification.permission === "granted" && contact.name
-                ? new Notification(`New Message! From: ${contact.name}`, {
-                      body: data,
-                      icon: NewMessageIcon,
-                  })
-                : new Notification(`You have new messages!`, {
-                      body: data,
-                      icon: NewMessageIcon,
-                  });
+        socket.onmessage = ({ data }) => {
+            const dataObj = JSON.parse(data);
+            Notification.permission === "granted" &&
+                dataObj &&
+                new Notification(`New Message! From: ${dataObj.contact}`, {
+                    body: dataObj.message,
+                    icon: NewMessageIcon,
+                });
+        };
     }, [url, contact]);
     return (
         <header>
