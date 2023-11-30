@@ -1,5 +1,5 @@
 import useSendMessage from "../hooks/use-send-message";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { URLContext, ContactContext } from "./MessengerContext";
 import uEmojiParser from "universal-emoji-parser";
 import EmojiDataList from "./EmojiDataList";

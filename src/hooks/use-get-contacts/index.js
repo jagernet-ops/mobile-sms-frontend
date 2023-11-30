@@ -4,7 +4,11 @@ import { useQuery } from "react-query";
 function useGetContacts(url) {
     const { data, isLoading } = useQuery(
         ["getContacts"],
-        async () => await axios.get(`${url}/get-contacts`)
+        async () => await axios.get(`${url}/get-contacts`),
+        {
+            keepPreviousData: true,
+            refetchOnWindowFocus: false,
+        }
     );
 
     return {

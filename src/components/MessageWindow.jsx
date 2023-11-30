@@ -11,7 +11,6 @@ const MessageWindow = ({ windowRef }) => {
 
     return (
         <div ref={windowRef} className="messageHistory">
-            {console.log(messages)}
             <MessageHeader contact={contact} />
             {isLoading ||
                 messages.data.reverse().map((message) => {

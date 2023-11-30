@@ -9,7 +9,10 @@ const useSendMessage = (url) => {
             });
         },
         {
-            onSuccess: () => queryClient.invalidateQueries("getMessage"),
+            onSuccess: () => {
+                queryClient.invalidateQueries("getMessage");
+                queryClient.refetchQueries("getMessage");
+            },
         }
     );
     return {
